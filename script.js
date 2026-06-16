@@ -154,6 +154,30 @@ document.addEventListener('DOMContentLoaded', () => {
           contactOverlay.classList.remove('active');
         }
       });
+      
+      // Prevent form submission reload
+      const enquiryForm = document.querySelector('.enquiry-form');
+      if (enquiryForm) {
+        enquiryForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          alert('Thank you for your enquiry. Our team will contact you shortly.');
+          enquiryForm.reset();
+          contactOverlay.classList.remove('active');
+        });
+      }
+    }
+    
+    // --- 8. Search Functionality Demo ---
+    const searchInput = document.querySelector('.search-container input');
+    if (searchInput) {
+      searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          alert('Searching for: ' + searchInput.value);
+          searchInput.value = '';
+          searchOverlay.classList.remove('active');
+        }
+      });
     }
   
   });
